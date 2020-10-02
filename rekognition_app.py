@@ -29,11 +29,12 @@ client2 = session.client('s3', aws_access_key_id=access_key_id,
 #         return imgfile.read()
 
 
-# imgb = get_image("Images/elon musk.jpg")
+# photob = get_image("Images/elon musk.jpg")
+
 photo = 'ramailo.jpg'
 res1 = client1.detect_faces(
     Image={
-        # 'Bytes':imgb
+        # 'Bytes':photob
         'S3Object': {
             'Bucket': 'rekognitiondata99',
             'Name': photo
@@ -41,6 +42,7 @@ res1 = client1.detect_faces(
     },
     Attributes=['ALL']
 )
+
 print("Detected faces for " + photo)
 for person in res1['FaceDetails']:
     # print(json.dumps(face, indent=4))
@@ -72,13 +74,13 @@ for bucket in res2['Buckets']:
 
 
 # upload file in bucket:
-#
-# with open('Images/ramailo.jpg', 'rb') as f:
+
+# with open('Images/escorting.jpg', 'rb') as f:
 #     data = f.read()
 # res3 = client2.put_object(
 #     ACL='private',
 #     Body=data,
 #     Bucket='rekognitiondata99',
-#     Key='ramailo.jpg',
+#     Key='escorting.jpg',
 # )
 # print('Uploaded successfully!')
